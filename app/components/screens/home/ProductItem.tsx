@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import { FC } from 'react';
-import { useActions } from '../../../hooks/useActions';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import { IProduct } from '../../../store/product/product.types';
+import Image from "next/image";
+import { FC } from "react";
+import { useActions } from "../../../hooks/useActions";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { IProduct } from "../../../store/product/product.types";
 
 const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
   const { addItem } = useActions();
@@ -10,8 +10,9 @@ const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
   const isExistsInCart = cart.some((p) => p.id === product.id);
   return (
     <div
-      style={{ width: '48%', backgroundColor: '#E5F0EA' }}
-      className="rounded-xl mb-5 p-3 shadow-sm">
+      style={{ width: "48%", backgroundColor: "#E5F0EA" }}
+      className="rounded-xl mb-5 p-3 shadow-sm"
+    >
       <div className="text-center">
         <Image
           src={product.image}
@@ -29,8 +30,9 @@ const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
       </div>
       <button
         className="text-sm mt-3 bg-white rounded-xl w-3/4 mx-auto block p-1 hover:bg-green-200"
-        onClick={() => !isExistsInCart && addItem(product)}>
-        {isExistsInCart ? 'Already in cart' : 'Add to cart'}
+        onClick={() => !isExistsInCart && addItem(product)}
+      >
+        {isExistsInCart ? "Already in cart" : "Add to cart"}
       </button>
     </div>
   );
